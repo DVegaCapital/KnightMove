@@ -9,10 +9,16 @@ import java.util.List;
  * @author Xiaodong Cao
  */
 
-
 public class KnightSolution {
 
-    Keypad keyPad = new Keypad();
+    Keypad keyPad;
+
+    public KnightSolution(){
+        this.keyPad = new Keypad();
+        System.out.println(keyPad.keyPadNodeList);
+        System.out.println(keyPad.KeyPadMoveMap);
+
+    }
 
     public int nthSequenceFromNode(PadNode padNode, int n) {
 
@@ -28,6 +34,9 @@ public class KnightSolution {
         } else {
             zeroVowelPadNodeList.add(padNode);
         }
+
+        System.out.println("");
+        System.out.print("this is for node X axis : " + padNode.getX() + " Y axis : " + padNode.getY());
 
         for (int i = 1; i < n; i++) {
 
@@ -97,6 +106,10 @@ public class KnightSolution {
                 }
             }
 
+            System.out.println(" This is the " + i + " time test");
+            System.out.println("Zero vowel list length: " + zeroVowelPadNodeList.size() + " || one vowel list length: " + oneVowelPadNodeList.size() + " || two vowel list length: " + twoVowelPadNodeList.size());
+
+
         }
 
         return twoVowelPadNodeList.size();
@@ -136,8 +149,8 @@ public class KnightSolution {
 
         KnightSolution knightMoveResult = new KnightSolution();
 
-        System.out.println("10 step result: " + knightMoveResult.getNthSeqTotalNumber(10));
-        System.out.println("16 step result: " + knightMoveResult.getNthSeqTotalNumber(16));
+        System.out.println("10 steps result: " + knightMoveResult.getNthSeqTotalNumber(10));
+        //System.out.println("16 step result: " + knightMoveResult.getNthSeqTotalNumber(16));
         //System.out.println("32 step result: " + knightMoveResult.getNthSeqTotalNumber(32));
     }
 }

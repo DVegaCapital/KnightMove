@@ -2,9 +2,12 @@ package com.knightMove;
 
 /**
  * Data structure to store two number node
+ *
  * @author Xiaodong Cao.
  */
+
 public class PadNode {
+
     private final int x;
     private final int y;
 

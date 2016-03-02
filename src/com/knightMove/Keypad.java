@@ -12,19 +12,19 @@ import java.util.Map;
  */
 public class Keypad {
 
-    public Map<PadNode,List<PadNode>> KeyPadMoveMap = new HashMap<PadNode, List<PadNode>>();
+    public Map<PadNode, List<PadNode>> KeyPadMoveMap = new HashMap<PadNode, List<PadNode>>();
     public List<PadNode> keyPadNodeList = new LinkedList<PadNode>();
 
     public Keypad() {
-        createKeyPad();
+        this.createKeyPad();
     }
 
     private void createKeyPad() {
-        for(int i = 0; i < 4; i++){
-            for(int j = 0; j < 3; j++){
-                if(validLocation(i,j)){
-                    this.KeyPadMoveMap.put(new PadNode(i,j), findNextPossibleMove(i,j));
-                    this.keyPadNodeList.add(new PadNode(i,j));
+        for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < 5; i++) {
+                if (validLocation(i, j)) {
+                    this.KeyPadMoveMap.put(new PadNode(i, j), findNextPossibleMove(i, j));
+                    this.keyPadNodeList.add(new PadNode(i, j));
                 }
             }
 
@@ -43,6 +43,7 @@ public class Keypad {
     }
 
     private boolean validLocation(int x, int y) {
+
         // Check if x value is out of range.
         if ((x < 0) || (x > 4))
             return false;
@@ -81,7 +82,7 @@ public class Keypad {
         }
 
         if (validLocation(x - 2, y - 1)) {  // 4
-            nextPossibleMoveNodeList.add(new PadNode(x + 2, y + 1));
+            nextPossibleMoveNodeList.add(new PadNode(x - 2, y - 1));
         }
 
         if (validLocation(x + 1, y + 2)) {  // 5
